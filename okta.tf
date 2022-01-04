@@ -32,10 +32,10 @@ resource "okta_app_oauth" "vault" {
     name        = "groups"
     value       = "vault"
   }
-  login_mode = "SPEC"
-  login_scopes = ["openid","email","profile"]
-  hide_web = false
-  hide_ios = false
+  login_mode   = "SPEC"
+  login_scopes = ["openid", "email", "profile"]
+  hide_web     = false
+  hide_ios     = false
 }
 
 resource "okta_app_oauth_api_scope" "vault" {
@@ -58,7 +58,7 @@ resource "okta_auth_server" "vault" {
   audiences   = [var.okta_auth_audience]
   description = ""
   name        = "vault"
-  issuer_mode = "ORG_URL"
+  issuer_mode = var.okta_issue_mode
   status      = "ACTIVE"
 }
 

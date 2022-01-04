@@ -6,7 +6,7 @@ variable "vault_addr" {
 variable "vault_namespace" {
   type        = string
   description = "namespace in which to mount the auth method"
-  default = ""
+  default     = ""
 }
 
 variable "okta_org_name" {
@@ -22,6 +22,12 @@ variable "okta_base_url" {
 variable "okta_base_url_full" {
   type        = string
   description = "Full URL of Okta login, usually instanceID.okta.com, ie https://dev-208447.okta.com"
+}
+
+variable "okta_issue_mode" {
+  type        = string
+  description = "Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client. ORG_URL = foo.okta.com, CUSTOM_URL = custom domain"
+  default     = "ORG_URL"
 }
 
 variable "okta_api_token" {
